@@ -38,7 +38,6 @@ if ($handle) {
                 if (!empty($missing_items)) {
                     foreach ($missing_items as $item) {
                         if ($item != 'cid') {
-                            print(implode(" ", $passport).PHP_EOL);
                             $invalid_passport_count++;
                         }
                     }
