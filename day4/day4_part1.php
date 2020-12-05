@@ -1,6 +1,8 @@
 <?php
 
-$handle = fopen("input.txt", "r");
+require_once 'NestedArray.php';
+
+$handle = fopen("day4_part1_input.txt", "r");
 $passport_count = 0;
 $passport = [];
 $line_array =[];
@@ -15,22 +17,6 @@ $valid_passport_format = [
     'pid', // (Passport ID)
     'cid' // (Country ID)
     ];
-
-function nestedArrayToSingleArray(array $array) : array
-{
-    $singleDimArray = [];
-
-    foreach ($array as $item) {
-
-        if (is_array($item)) {
-            $singleDimArray = array_merge($singleDimArray, nestedArrayToSingleArray($item));
-
-        } else {
-            $singleDimArray[] = $item;
-        }
-    }
-    return $singleDimArray;
-}
 
 if ($handle) {
     while (($buffer = fgets($handle, 512)) !== false) {
